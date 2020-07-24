@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=src/main/webapp/chat/layer,src/main/webapp/assets,src/main/webapp/chat/js/jquery.min.js,src/main/webapp/easyui/js,src/main/webapp/WEB-INF/static/js/jquery-2.0.0.min.js,src/main/webapp/static/js
+validator.Unchecked=

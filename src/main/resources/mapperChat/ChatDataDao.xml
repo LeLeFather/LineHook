@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lend.chat.dao.ChatDataDao">
+  <resultMap id="BaseResultMap" type="com.lend.chat.entity.ChatData">
+    <id column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="chatSCID" jdbcType="VARCHAR" property="chatSCID" />
+    <result column="chatServiceId" jdbcType="VARCHAR" property="chatServiceId" />
+    <result column="chatCustomId" jdbcType="VARCHAR" property="chatCustomId" />
+    <result column="chatTitle" jdbcType="VARCHAR" property="chatTitle" />
+    <result column="chatCustomName" jdbcType="VARCHAR" property="chatCustomName" />
+    <result column="chatCustomCompany" jdbcType="VARCHAR" property="chatCustomCompany" />
+    <result column="chatCustomPhone" jdbcType="VARCHAR" property="chatCustomPhone" />
+    <result column="chatCustomType" jdbcType="VARCHAR" property="chatCustomType" />
+    <result column="chatCustomAddress" jdbcType="VARCHAR" property="chatCustomAddress" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="countryId" jdbcType="VARCHAR" property="countryId" />
+    <result column="countryNum" jdbcType="INTEGER" property="countryNum" />
+    <result column="ossId" jdbcType="VARCHAR" property="ossId" />
+    <result column="chatCustomRemark" jdbcType="VARCHAR" property="chatCustomRemark" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lend.chat.entity.ChatData">
+    <result column="datas" jdbcType="LONGVARCHAR" property="datas" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cid, chatSCID, chatServiceId, chatCustomId, chatTitle, chatCustomName, chatCustomCompany, 
+    chatCustomPhone, chatCustomType, chatCustomAddress, type, countryId, countryNum, 
+    ossId, chatCustomRemark
+  </sql>
+  <sql id="Blob_Column_List">
+    datas
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from chat_data
+    where cid = #{cid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from chat_data
+    where cid = #{cid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lend.chat.entity.ChatData">
+    insert into chat_data (cid, chatSCID, chatServiceId, 
+      chatCustomId, chatTitle, chatCustomName, 
+      chatCustomCompany, chatCustomPhone, chatCustomType, 
+      chatCustomAddress, type, countryId, 
+      countryNum, ossId, chatCustomRemark, 
+      datas)
+    values (#{cid,jdbcType=BIGINT}, #{chatSCID,jdbcType=VARCHAR}, #{chatServiceId,jdbcType=VARCHAR}, 
+      #{chatCustomId,jdbcType=VARCHAR}, #{chatTitle,jdbcType=VARCHAR}, #{chatCustomName,jdbcType=VARCHAR}, 
+      #{chatCustomCompany,jdbcType=VARCHAR}, #{chatCustomPhone,jdbcType=VARCHAR}, #{chatCustomType,jdbcType=VARCHAR}, 
+      #{chatCustomAddress,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{countryId,jdbcType=VARCHAR}, 
+      #{countryNum,jdbcType=INTEGER}, #{ossId,jdbcType=VARCHAR}, #{chatCustomRemark,jdbcType=VARCHAR}, 
+      #{datas,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lend.chat.entity.ChatData">
+    insert into chat_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="chatSCID != null">
+        chatSCID,
+      </if>
+      <if test="chatServiceId != null">
+        chatServiceId,
+      </if>
+      <if test="chatCustomId != null">
+        chatCustomId,
+      </if>
+      <if test="chatTitle != null">
+        chatTitle,
+      </if>
+      <if test="chatCustomName != null">
+        chatCustomName,
+      </if>
+      <if test="chatCustomCompany != null">
+        chatCustomCompany,
+      </if>
+      <if test="chatCustomPhone != null">
+        chatCustomPhone,
+      </if>
+      <if test="chatCustomType != null">
+        chatCustomType,
+      </if>
+      <if test="chatCustomAddress != null">
+        chatCustomAddress,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="countryId != null">
+        countryId,
+      </if>
+      <if test="countryNum != null">
+        countryNum,
+      </if>
+      <if test="ossId != null">
+        ossId,
+      </if>
+      <if test="chatCustomRemark != null">
+        chatCustomRemark,
+      </if>
+      <if test="datas != null">
+        datas,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=BIGINT},
+      </if>
+      <if test="chatSCID != null">
+        #{chatSCID,jdbcType=VARCHAR},
+      </if>
+      <if test="chatServiceId != null">
+        #{chatServiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomId != null">
+        #{chatCustomId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatTitle != null">
+        #{chatTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomName != null">
+        #{chatCustomName,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomCompany != null">
+        #{chatCustomCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomPhone != null">
+        #{chatCustomPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomType != null">
+        #{chatCustomType,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomAddress != null">
+        #{chatCustomAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="countryId != null">
+        #{countryId,jdbcType=VARCHAR},
+      </if>
+      <if test="countryNum != null">
+        #{countryNum,jdbcType=INTEGER},
+      </if>
+      <if test="ossId != null">
+        #{ossId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomRemark != null">
+        #{chatCustomRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="datas != null">
+        #{datas,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lend.chat.entity.ChatData">
+    update chat_data
+    <set>
+      <if test="chatSCID != null">
+        chatSCID = #{chatSCID,jdbcType=VARCHAR},
+      </if>
+      <if test="chatServiceId != null">
+        chatServiceId = #{chatServiceId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomId != null">
+        chatCustomId = #{chatCustomId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatTitle != null">
+        chatTitle = #{chatTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomName != null">
+        chatCustomName = #{chatCustomName,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomCompany != null">
+        chatCustomCompany = #{chatCustomCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomPhone != null">
+        chatCustomPhone = #{chatCustomPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomType != null">
+        chatCustomType = #{chatCustomType,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomAddress != null">
+        chatCustomAddress = #{chatCustomAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="countryId != null">
+        countryId = #{countryId,jdbcType=VARCHAR},
+      </if>
+      <if test="countryNum != null">
+        countryNum = #{countryNum,jdbcType=INTEGER},
+      </if>
+      <if test="ossId != null">
+        ossId = #{ossId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatCustomRemark != null">
+        chatCustomRemark = #{chatCustomRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="datas != null">
+        datas = #{datas,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lend.chat.entity.ChatData">
+    update chat_data
+    set chatSCID = #{chatSCID,jdbcType=VARCHAR},
+      chatServiceId = #{chatServiceId,jdbcType=VARCHAR},
+      chatCustomId = #{chatCustomId,jdbcType=VARCHAR},
+      chatTitle = #{chatTitle,jdbcType=VARCHAR},
+      chatCustomName = #{chatCustomName,jdbcType=VARCHAR},
+      chatCustomCompany = #{chatCustomCompany,jdbcType=VARCHAR},
+      chatCustomPhone = #{chatCustomPhone,jdbcType=VARCHAR},
+      chatCustomType = #{chatCustomType,jdbcType=VARCHAR},
+      chatCustomAddress = #{chatCustomAddress,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      countryId = #{countryId,jdbcType=VARCHAR},
+      countryNum = #{countryNum,jdbcType=INTEGER},
+      ossId = #{ossId,jdbcType=VARCHAR},
+      chatCustomRemark = #{chatCustomRemark,jdbcType=VARCHAR},
+      datas = #{datas,jdbcType=LONGVARCHAR}
+    where cid = #{cid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lend.chat.entity.ChatData">
+    update chat_data
+    set chatSCID = #{chatSCID,jdbcType=VARCHAR},
+      chatServiceId = #{chatServiceId,jdbcType=VARCHAR},
+      chatCustomId = #{chatCustomId,jdbcType=VARCHAR},
+      chatTitle = #{chatTitle,jdbcType=VARCHAR},
+      chatCustomName = #{chatCustomName,jdbcType=VARCHAR},
+      chatCustomCompany = #{chatCustomCompany,jdbcType=VARCHAR},
+      chatCustomPhone = #{chatCustomPhone,jdbcType=VARCHAR},
+      chatCustomType = #{chatCustomType,jdbcType=VARCHAR},
+      chatCustomAddress = #{chatCustomAddress,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      countryId = #{countryId,jdbcType=VARCHAR},
+      countryNum = #{countryNum,jdbcType=INTEGER},
+      ossId = #{ossId,jdbcType=VARCHAR},
+      chatCustomRemark = #{chatCustomRemark,jdbcType=VARCHAR}
+    where cid = #{cid,jdbcType=BIGINT}
+  </update>
+</mapper>

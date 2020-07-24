@@ -1,0 +1,99 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>LinkHook</groupId>
+  <artifactId>LinkHook</artifactId>
+  <version>1</version>
+  <packaging>war</packaging>
+  <name>LinkHook</name>
+  <description/>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+      <scope>provided</scope>
+    </dependency>
+ 
+ 
+ 
+  
+   
+   
+   <!-- spring 相关 --> 
+    <dependency>
+	<groupId>org.springframework</groupId>
+  	<artifactId>spring-test</artifactId>
+  	<version>3.1.1.RELEASE</version>
+</dependency>
+   
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>4.3.6.RELEASE</version>
+</dependency>
+
+ <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>4.3.6.RELEASE</version>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm</artifactId>
+    <version>4.3.4.RELEASE</version>
+</dependency>
+
+
+
+
+
+
+ <!-- JSON处理 包 -->
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>fastjson</artifactId>
+    <version>1.2.24</version>
+</dependency>
+
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.8.9</version>
+</dependency>
+
+
+<!-- freemarker 相关 -->
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context-support</artifactId>
+    <version>4.3.3.RELEASE</version>
+</dependency>
+
+  
+     <dependency>
+      <groupId>com.linecorp.bot</groupId>
+      <artifactId>line-bot-api-client</artifactId>
+      <version>3.6.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.linecorp.bot</groupId>
+      <artifactId>line-bot-model</artifactId>
+      <version>3.6.0</version>
+      <scope>compile</scope>
+    </dependency>
+  
+  
+
+   
+  	<!-- end -->
+  	
+  </dependencies>
+
+</project>
